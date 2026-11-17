@@ -16,12 +16,12 @@ export function useAddItemForm({ items, onCreateItem }: Props) {
         const id = Number(newId);
 
         if (!Number.isSafeInteger(id) || id <= 0) {
-            setAddError('Введите корректный положительный ID');
+            setAddError('Please enter a valid positive ID');
             return;
         }
 
         if (items.some((item) => item.id === id)) {
-            setAddError('Этот ID уже находится в списке');
+            setAddError('This ID is already in the list');
             return;
         }
 
@@ -36,9 +36,7 @@ export function useAddItemForm({ items, onCreateItem }: Props) {
             setIsAdding(false);
         } catch (error) {
             setAddError(
-                error instanceof Error
-                    ? error.message
-                    : 'Не удалось добавить элемент',
+                error instanceof Error ? error.message : 'Failed to add item',
             );
         } finally {
             setAdding(false);
