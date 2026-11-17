@@ -2,10 +2,10 @@ services:
     backend:
         build:
             context: ./core
-        container_name: ListExpress-core
+        container_name: TransferList-core
         restart: unless-stopped
         ports:
-            - '3010:3000'
+            - '3000:3000'
         working_dir: /app
         volumes:
             - ./core:/app
@@ -15,7 +15,7 @@ services:
     frontend:
         build:
             context: ./gui
-        container_name: ListExpress-gui
+        container_name: TransferList-gui
         restart: unless-stopped
         ports:
             - '5173:5173'

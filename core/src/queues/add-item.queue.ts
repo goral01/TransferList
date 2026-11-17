@@ -10,7 +10,7 @@ export class AddItemQueue<T> {
         if (this.queue.has(id)) {
             return Promise.reject(
                 new Error(
-                    `Item with id ${id} already exists or is being added`,
+                    `Element with id ${id} already exists or is being added`,
                 ),
             );
         }
